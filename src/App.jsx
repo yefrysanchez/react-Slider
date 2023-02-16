@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import "./App.css";
+import {RxDotFilled} from 'react-icons/rx'
 
 function App() {
   const slides = [
@@ -35,7 +35,11 @@ function App() {
       setSlide(slide + 1)
     }
   }
-console.log(slide)
+  const goToSlide = (index) => {
+    setSlide(index)
+  }
+
+
   return (
     <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group">
       <div
@@ -48,6 +52,13 @@ console.log(slide)
       </div>
       <div onClick={slideRight} className="hidden group-hover:block text-slate-100 bg-black/20 rounded-full p-2 absolute top-1/2 translate-y-[-50%] right-5 cursor-pointer">
         <BsChevronCompactRight size={30} />
+      </div>
+      <div className="flex top-4 justify-center py-2">
+        {slides.map((e, index) => (
+          <div onClick={() => goToSlide(index)} className="text-2xl cursor-pointer">
+            <RxDotFilled />
+          </div>
+        ))}
       </div>
     </div>
   );
