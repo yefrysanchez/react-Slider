@@ -55,7 +55,7 @@ function App() {
       </div>
       <div className="flex top-4 justify-center py-2">
         {slides.map((e, index) => (
-          <div onClick={() => goToSlide(index)} className="text-2xl cursor-pointer">
+          <div key={index} onClick={() => goToSlide(index)} className="text-2xl cursor-pointer">
             <RxDotFilled />
           </div>
         ))}
